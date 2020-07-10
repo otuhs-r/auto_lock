@@ -12,5 +12,5 @@ load_dotenv(dotenv_path=env_path)
 
 SESAME_AUTH_TOKEN = os.getenv('SESAME_AUTH_TOKEN')
 SESAME_DEVICE_ID = os.getenv('SESAME_DEVICE_ID')
-INTERVAL_SEC = os.getenv('INTERVAL_SEC')
-GPIO_PIN = os.getenv('GPIO_PIN')
+INTERVAL_SEC = int(os.getenv('INTERVAL_SEC'))
+GPIO_PIN = int(os.getenv('GPIO_PIN'))
