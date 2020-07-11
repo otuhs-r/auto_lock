@@ -14,7 +14,7 @@ def control_sesame(gpio_pin):
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(settings.GPIO_PIN, GPIO.IN)
-GPIO.add_event_detect(settings.GPIO_PIN, GPIO.BOTH, callback=control_sesame, bouncetime=200)
+GPIO.add_event_detect(settings.GPIO_PIN, GPIO.BOTH, callback=control_sesame, bouncetime=500)
 
 if __name__ == '__main__':
     try:
