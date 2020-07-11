@@ -4,6 +4,7 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+raspberry-gpio-emulator = {git = "https://github.com/nosix/raspberry-gpio-emulator/"}
 
 [packages]
 python-dotenv = "*"
@@ -12,5 +13,5 @@ pysesame2 = "*"
 [requires]
 python_version = "3.7"
 
-[script]
+[scripts]
 start = "python sesame.py"

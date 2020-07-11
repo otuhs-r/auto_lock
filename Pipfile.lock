@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "658c562e11d983cd006ce799ed772af2bd384b014c94de02b7ac187aff04a6bf"
+            "sha256": "250528dd799ca68c33a069ff201675759b427ea1c077e21cd9d9ffcb0b2da18d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -71,5 +71,10 @@
             "version": "==1.25.9"
         }
     },
-    "develop": {}
+    "develop": {
+        "raspberry-gpio-emulator": {
+            "git": "https://github.com/nosix/raspberry-gpio-emulator/",
+            "ref": "9e65c46cacffcbd2c80c90727ca5320d0e4b9c8a"
+        }
+    }
 }
