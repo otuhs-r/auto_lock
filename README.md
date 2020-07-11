@@ -72,6 +72,15 @@ pipenv がなければ事前に
 $ pip install pipenv
 ```
 
+### 開発環境
+
+`pipenv install` に `dev` オプションを渡すことで開発用に [RPi モジュールのエミュレーター](https://github.com/nosix/raspberry-gpio-emulator) もインストールします。
+これにより macOS等の RPi.GPIO モジュールがインストールされていない環境でも開発ができます。
+
+```
+$ pipenv install --dev
+```
+
 ## 参考にした Web サイトたち
 
 - [GPIO - Raspberry Pi Documentation](https://www.raspberrypi.org/documentation/usage/gpio/README.md)
