@@ -5,9 +5,13 @@ import RPi.GPIO as GPIO
 import settings
 
 def control_sesame(gpio_pin):
-    sesame = Sesame(UUID(settings.SESAME_DEVICE_ID), settings.SESAME_AUTH_TOKEN)
+    # 誤検知で動くのを防ぐため、1秒同じ状態をキープしなければエッジとみなさない
+    state = GPIO.input(gpio_pin)
+    time.sleep(1)
+    if GPIO.input(gpio_pin) != state:
+        return
 
-    if GPIO.input(gpio_pin) == GPIO.HIGH:
+    if state == GPIO.HIGH:
         sesame.unlock()
     else:
         sesame.lock()
@@ -15,6 +19,7 @@ def control_sesame(gpio_pin):
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(settings.GPIO_PIN, GPIO.IN)
 GPIO.add_event_detect(settings.GPIO_PIN, GPIO.BOTH, callback=control_sesame, bouncetime=500)
+sesame = Sesame(UUID(settings.SESAME_DEVICE_ID), settings.SESAME_AUTH_TOKEN)
 
 if __name__ == '__main__':
     try:
