@@ -71,3 +71,10 @@ pipenv がなければ事前に
 ```
 $ pip install pipenv
 ```
+
+## 参考にした Web サイトたち
+
+- [GPIO - Raspberry Pi Documentation](https://www.raspberrypi.org/documentation/usage/gpio/README.md)
+- [【Raspberry Pi】自作人感センサーの使い方と活用法](https://chasuke.com/motionsensor/)
+- [GPIOエッジ検出コールバック関数](https://tomosoft.jp/design/?p=8685)
+- [PIR(人感センサー)の使い方](http://www.umek.topaz.ne.jp/mameduino/pir_howto/)
