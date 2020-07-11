@@ -8,10 +8,8 @@ def control_sesame(gpio_pin):
     sesame = Sesame(UUID(settings.SESAME_DEVICE_ID), settings.SESAME_AUTH_TOKEN)
 
     if GPIO.input(gpio_pin) == GPIO.HIGH:
-        print('open sesame!')
         sesame.unlock()
     else:
-        print('close sesame!')
         sesame.lock()
 
 GPIO.setmode(GPIO.BCM)
