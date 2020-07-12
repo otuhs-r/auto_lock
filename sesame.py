@@ -4,21 +4,13 @@ import time
 import RPi.GPIO as GPIO
 import settings
 
-def control_sesame(gpio_pin):
-    # 誤検知で動くのを防ぐため、しばらく同じ状態をキープしなければエッジとみなさない
-    state = GPIO.input(gpio_pin)
-    time.sleep(3.5)
-    if GPIO.input(gpio_pin) != state:
-        return
-
-    if state == GPIO.HIGH:
-        sesame.unlock()
-    else:
+def close_sesame(_gpio_pin):
+    if not sesame.get_status()['locked']:
         sesame.lock()
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(settings.GPIO_PIN, GPIO.IN)
-GPIO.add_event_detect(settings.GPIO_PIN, GPIO.BOTH, callback=control_sesame, bouncetime=500)
+GPIO.add_event_detect(settings.GPIO_PIN, GPIO.FALLING, callback=close_sesame, bouncetime=500)
 sesame = Sesame(UUID(settings.SESAME_DEVICE_ID), settings.SESAME_AUTH_TOKEN)
 
 if __name__ == '__main__':
