@@ -7,7 +7,7 @@ import settings
 def control_sesame(gpio_pin):
     # 誤検知で動くのを防ぐため、しばらく同じ状態をキープしなければエッジとみなさない
     state = GPIO.input(gpio_pin)
-    time.sleep(1)
+    time.sleep(3.5)
     if GPIO.input(gpio_pin) != state:
         return
 
